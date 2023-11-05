@@ -1,24 +1,66 @@
+import { motion } from "framer-motion";
 const Banner = () => {
   return (
     <div className="bg-[#FEFCFB]">
       <div className="relative w-full min-h-screen hero  max-w-[1400px] mx-auto">
         <div className="z-10 flex-col hero-content lg:flex-row-reverse">
-          <img src="/traveller1.png" className="w-[300px]" />
+          <motion.img
+            initial={{ y: -1000 }}
+            animate={{ y: 0 }}
+            transition={{
+              duration: "2",
+              delay: "1",
+            }}
+            src="/traveller1.png"
+            className="w-[300px]"
+          />
           <div className="">
-            <h1 className="text-[64px] font-volkhov font-bold ">
+            <motion.h1
+              initial={{ x: -1000 }}
+              animate={{ x: 0 }}
+              transition={{
+                duration: "2",
+                delay: "1",
+              }}
+              className="text-[64px] font-volkhov font-bold"
+            >
               Get started your exciting{" "}
               <span className="text-[#FA7436]">journey</span> with us.
-            </h1>
-            <p className="py-6 max-w-[400px]">
+            </motion.h1>
+            <motion.p
+              initial={{ x: -1000 }}
+              animate={{ x: 0 }}
+              transition={{
+                duration: "2",
+                delay: "1.2",
+              }}
+              className="py-6 max-w-[400px]"
+            >
               A Team of experienced tourism professionals will provide you with
               the best advice and tips for your desire place.
-            </p>
-            <button className="btn border-2 border-[#FA7436] text-[18px] font-medium bg-transparent text-[#FA7436] hover:text-white hover:bg-[#FA7436] shadow-lg">
+            </motion.p>
+            <motion.button
+              initial={{ x: -1000 }}
+              animate={{ x: 0 }}
+              transition={{
+                duration: "2",
+                delay: "1.4",
+              }}
+              className="btn border-2 border-[#FA7436] text-[18px] font-medium bg-transparent text-[#FA7436] hover:text-white hover:bg-[#FA7436] shadow-lg"
+            >
               Discover Now
-            </button>
+            </motion.button>
           </div>
         </div>
-        <div className="absolute top-0 right-0">
+        <motion.div
+          initial={{ x: 1000 }}
+          animate={{ x: 0 }}
+          transition={{
+            duration: "2",
+            delay: "1",
+          }}
+          className="absolute top-0 right-0"
+        >
           <svg
             width="942"
             height="963"
@@ -32,7 +74,7 @@ const Banner = () => {
               fill="#FFF1DA"
             />
           </svg>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
