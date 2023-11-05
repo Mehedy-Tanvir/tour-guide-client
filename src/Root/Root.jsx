@@ -4,7 +4,7 @@ import Footer from "../Components/Footer/Footer";
 
 const Root = () => {
   return (
-    <div className="font-poppins">
+    <div className="overflow-hidden font-poppins">
       <Navbar></Navbar>
       <div className="min-h-screen">
         <Outlet></Outlet>

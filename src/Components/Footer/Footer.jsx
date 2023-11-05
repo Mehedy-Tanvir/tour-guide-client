@@ -74,6 +74,7 @@ const Footer = () => {
             </a>
           </nav>
         </footer>
+        <hr className="w-[75%] mx-auto border border-[#9966668F]" />
         <footer className="rounded footer footer-center text-base-content">
           <aside>
             <p className="text-[#222] max-w-[300px] pb-10 text-[16px] font-medium mt-[16px]">

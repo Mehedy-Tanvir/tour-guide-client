@@ -39,8 +39,8 @@ const Navbar = () => {
             isPending
               ? "pending"
               : isActive
-              ? " lg:bg-[#FA7436] hover:bg-opacity-80 lg:text-white lg:py-1 lg:px-4 rounded-md  normal-case font-normal text-[16px]"
-              : " lg:bg-[#FA7436] hover:bg-opacity-80 lg:text-white lg:py-1 lg:px-4 rounded-md  normal-case font-normal text-[16px]"
+              ? " lg:bg-[#FA7436] drop-shadow-lg hover:bg-opacity-80 lg:text-white lg:py-1 lg:px-4 rounded-md  normal-case font-normal text-[16px]"
+              : " lg:bg-[#FA7436] drop-shadow-lg hover:bg-opacity-80 lg:text-white lg:py-1 lg:px-4 rounded-md  normal-case font-normal text-[16px]"
           }
           to="/login"
         >
@@ -50,15 +50,15 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="max-w-[1400px] flex items-center justify-between px-2 py-4 mx-auto">
-      <div className="flex items-center justify-center">
+    <div className="max-w-[1400px] bg-[#FEFCFB] flex items-center justify-between px-2 py-4 mx-auto">
+      <div className="flex items-center gap-[10px] justify-center">
         <img className="h-[24px]" src="/logo.svg" alt="logo" />
         <p className="text-[24px] text-[#222] font-bold">Travello</p>
       </div>
       <ul className="lg:flex hidden items-center uppercase justify-between gap-[60px]">
         {links}
       </ul>
-      <div className="dropdown dropdown-left lg:hidden">
+      <div className="z-50 dropdown dropdown-left lg:hidden">
         <label tabIndex={0} className="btn btn-ghost btn-circle">
           <AiOutlineMenu className="text-[36px] text-[var(--body_color)]" />
         </label>
