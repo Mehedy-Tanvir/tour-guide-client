@@ -7,11 +7,13 @@ import Register from "../Pages/Register/Register";
 import MyServices from "../Pages/MyServices/MyServices";
 import AddServices from "../Pages/AddServices/AddServices";
 import MySchedules from "../Pages/MySchedules/MySchedules";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const Routes = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
