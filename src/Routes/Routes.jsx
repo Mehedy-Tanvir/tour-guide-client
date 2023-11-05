@@ -4,6 +4,9 @@ import Login from "../Pages/Login/Login";
 import Home from "../Pages/Home/Home";
 import Services from "../Pages/Services/Services";
 import Register from "../Pages/Register/Register";
+import MyServices from "../Pages/MyServices/MyServices";
+import AddServices from "../Pages/AddServices/AddServices";
+import MySchedules from "../Pages/MySchedules/MySchedules";
 
 const Routes = createBrowserRouter([
   {
@@ -25,6 +28,18 @@ const Routes = createBrowserRouter([
       {
         path: "services",
         element: <Services></Services>,
+      },
+      {
+        path: "myServices",
+        element: <MyServices></MyServices>,
+      },
+      {
+        path: "addServices",
+        element: <AddServices></AddServices>,
+      },
+      {
+        path: "mySchedules",
+        element: <MySchedules></MySchedules>,
       },
     ],
   },

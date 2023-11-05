@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <div className="bg-[#FEFCFB]">
@@ -39,17 +40,19 @@ const Banner = () => {
               A Team of experienced tourism professionals will provide you with
               the best advice and tips for your desire place.
             </motion.p>
-            <motion.button
-              initial={{ x: -1000 }}
-              animate={{ x: 0 }}
-              transition={{
-                duration: "2",
-                delay: "1.4",
-              }}
-              className="btn border-2 border-[#FA7436] text-[18px] font-medium bg-transparent text-[#FA7436] hover:text-white hover:bg-[#FA7436] shadow-lg"
-            >
-              Discover Now
-            </motion.button>
+            <Link to="/services">
+              <motion.button
+                initial={{ x: -1000 }}
+                animate={{ x: 0 }}
+                transition={{
+                  duration: "2",
+                  delay: "1.4",
+                }}
+                className="btn border-2 border-[#FA7436] text-[18px] font-medium bg-transparent text-[#FA7436] hover:text-white hover:bg-[#FA7436] shadow-lg"
+              >
+                Discover Now
+              </motion.button>
+            </Link>
           </div>
         </div>
         <motion.div
