@@ -50,7 +50,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="container flex items-center justify-between px-2 py-4 mx-auto">
+    <div className="max-w-[1400px] flex items-center justify-between px-2 py-4 mx-auto">
       <div className="flex items-center justify-center">
         <img className="h-[24px]" src="/logo.svg" alt="logo" />
         <p className="text-[24px] text-[#222] font-bold">Travello</p>
