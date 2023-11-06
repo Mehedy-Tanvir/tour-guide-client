@@ -46,13 +46,13 @@ const Login = () => {
 
   return (
     <div className="bg-[#FEFCFB]">
-      <div className="max-w-[1400px] mx-auto mb-[40px] mt-[40px]">
+      <div className="max-w-[1400px] px-2 mx-auto mb-[40px] mt-[40px]">
         <div className="hero">
           <div className="flex-col md:flex-row-reverse hero-content">
             <div className="">
               <Lottie animationData={animationData} />
             </div>
-            <div className="border-2 shadow-xl w-full lg:w-[400px] mx-2 border-[#FA7436] card">
+            <div className="border-2 shadow-xl w-full lg:w-[400px] border-[#FA7436] card">
               <form onSubmit={handleSubmit} className="card-body">
                 <div className="form-control">
                   <label className="label">

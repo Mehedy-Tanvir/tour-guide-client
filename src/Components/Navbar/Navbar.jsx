@@ -171,16 +171,57 @@ const Navbar = () => {
           className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 uppercase"
         >
           {links}
-          <li className="lg:hidden">
-            <details>
-              <summary>Dashboard</summary>
-              <ul className="p-2 bg-base-100">
-                <li>My Services</li>
-                <li>Add Services</li>
-                <li>My Schedules</li>
-              </ul>
-            </details>
-          </li>
+          {user && (
+            <li className="lg:hidden">
+              <details>
+                <summary>Dashboard</summary>
+                <ul className="p-2 bg-base-100">
+                  <li>
+                    <NavLink
+                      className={({ isActive, isPending }) =>
+                        isPending
+                          ? "pending"
+                          : isActive
+                          ? "lg:text-[#FA7436] drop-shadow-lg normal-case font-poppins font-normal text-[16px]"
+                          : "text-[#222] drop-shadow-lg normal-case font-normal text-[16px]"
+                      }
+                      to="/myServices"
+                    >
+                      My Services
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className={({ isActive, isPending }) =>
+                        isPending
+                          ? "pending"
+                          : isActive
+                          ? "lg:text-[#FA7436] drop-shadow-lg normal-case font-poppins font-normal text-[16px]"
+                          : "text-[#222] drop-shadow-lg normal-case font-normal text-[16px]"
+                      }
+                      to="/addServices"
+                    >
+                      Add Services
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      className={({ isActive, isPending }) =>
+                        isPending
+                          ? "pending"
+                          : isActive
+                          ? "lg:text-[#FA7436] drop-shadow-lg normal-case font-poppins font-normal text-[16px]"
+                          : "text-[#222] drop-shadow-lg normal-case font-normal text-[16px]"
+                      }
+                      to="/mySchedules"
+                    >
+                      My Schedules
+                    </NavLink>
+                  </li>
+                </ul>
+              </details>
+            </li>
+          )}
         </ul>
       </div>
     </div>

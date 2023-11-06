@@ -38,7 +38,7 @@ const Banner = () => {
               className="py-6 max-w-[400px]"
             >
               A Team of experienced tourism professionals will provide you with
-              the best advice and tips for your desire place.
+              the best advice, tips and guidance for your desire place.
             </motion.p>
             <Link to="/services">
               <motion.button
