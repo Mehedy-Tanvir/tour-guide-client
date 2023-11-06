@@ -1,5 +1,17 @@
+import { useLoaderData } from "react-router-dom";
+import ServiceCard from "../../Components/ServiceCard/ServiceCard";
+
 const Services = () => {
-  return <div>services</div>;
+  const services = useLoaderData();
+  return (
+    <div className="max-w-[1400px] px-2 mx-auto mb-[40px] mt-[40px]">
+      <div className="flex flex-col items-center justify-center">
+        {services?.map((service, idx) => (
+          <ServiceCard key={idx} service={service}></ServiceCard>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Services;
