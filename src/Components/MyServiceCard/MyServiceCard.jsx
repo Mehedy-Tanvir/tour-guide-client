@@ -52,7 +52,7 @@ const MyServiceCard = ({ service }) => {
           </div>
         </div>
         <div className="justify-start mt-4 card-actions">
-          <Link>
+          <Link to={`/editMyService/${service?._id}`}>
             <button className="rounded-lg py-[9px] bg-[#FA7436] hover:bg-opacity-80 px-[16px] text-white text-[18px] font-semibold normal-case">
               Update
             </button>
