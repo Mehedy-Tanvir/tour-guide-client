@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const MyServiceCard = ({ service }) => {
+const MyServiceCard = ({ service, handleDelete }) => {
   return (
     <div className="rounded-lg w-full lg:w-[80%] pt-6 lg:pt-0 border shadow-lg card lg:card-side">
       <div className="flex mb-[4px] lg:hidden items-center justify-center gap-2 md:items-center flex-col">
@@ -57,7 +57,10 @@ const MyServiceCard = ({ service }) => {
               Update
             </button>
           </Link>
-          <button className="rounded-lg py-[9px] bg-red-500 hover:bg-opacity-80 px-[16px] text-white text-[18px] font-semibold normal-case">
+          <button
+            onClick={() => handleDelete(service?._id)}
+            className="rounded-lg py-[9px] bg-red-500 hover:bg-opacity-80 px-[16px] text-white text-[18px] font-semibold normal-case"
+          >
             Delete
           </button>
         </div>
@@ -67,5 +70,6 @@ const MyServiceCard = ({ service }) => {
 };
 MyServiceCard.propTypes = {
   service: PropTypes.object.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 export default MyServiceCard;
