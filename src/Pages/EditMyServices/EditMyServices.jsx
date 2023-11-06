@@ -1,11 +1,8 @@
-import { useContext } from "react";
 import toast from "react-hot-toast";
-import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import { useLoaderData, useNavigate } from "react-router-dom";
 
 const EditMyServices = () => {
-  const { user } = useContext(AuthContext);
   const loadedService = useLoaderData();
   const navigate = useNavigate();
   const handleSubmit = (e) => {
@@ -16,23 +13,17 @@ const EditMyServices = () => {
     const serviceArea = form.serviceArea.value;
     const price = form.price.value;
     const description = form.description.value;
-    const providerName = user?.displayName;
-    const providerImage = user?.photoURL;
-    const providerEmail = user?.email;
     const service = {
       serviceName,
       serviceImage,
       serviceArea,
       price,
       description,
-      providerName,
-      providerEmail,
-      providerImage,
     };
     console.log(service);
     const toastId = toast.loading("Updating service...");
     axios
-      .post("http://localhost:3000/services", service)
+      .put(`http://localhost:3000/myService/${loadedService?._id}`, service)
       .then((res) => {
         toast.success("Service updated successfully", { id: toastId });
         console.log(res);
