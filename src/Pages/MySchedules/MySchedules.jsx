@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const MySchedules = () => {
   const [bookings, setBookings] = useState(null);
   const [myPendingWorks, setMyPendingWorks] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useContext(AuthContext);
+  const [workStatuses, setWorkStatuses] = useState({});
 
   useEffect(() => {
     axios
@@ -31,7 +33,26 @@ const MySchedules = () => {
         console.log(error);
         setIsLoading(false);
       });
-  }, [user]);
+  }, [user, myPendingWorks]);
+
+  const handleStatusChange = (status, id) => {
+    const toastId = toast.loading("Changing status...");
+    axios
+      .patch(`http://localhost:3000/updateStatus/${id}`, {
+        status,
+      })
+      .then((res) => {
+        console.log(res.data);
+        toast.success("Status changed successfully", { id: toastId });
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Status could not changed", { id: toastId });
+      });
+  };
+  // console.log(status);
+  // console.log("my", myPendingWorks);
+
   return (
     <div className="max-w-[1400px] mx-auto mt-[40px] mb-[40px]">
       <h1 className="text-3xl font-semibold text-center">My Bookings</h1>
@@ -177,7 +198,11 @@ const MySchedules = () => {
                   <td>
                     <select
                       className="w-full max-w-xs select select-bordered"
-                      defaultValue={work?.status}
+                      value={workStatuses[work._id] || work.status}
+                      onChange={(e) => {
+                        const newStatus = e.target.value;
+                        handleStatusChange(newStatus, work._id);
+                      }}
                     >
                       <option disabled>Choose Status</option>
                       <option value="Pending">Pending</option>
