@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-const ServiceCard = ({ service }) => {
+
+const ServiceDetailsCard = ({ service }) => {
   return (
     <div className="rounded-lg w-full lg:w-[80%] pt-6 lg:pt-0 border shadow-lg card lg:card-side">
       <div className="flex mb-[4px] lg:hidden items-center justify-center gap-2 md:items-center flex-col">
@@ -51,7 +52,7 @@ const ServiceCard = ({ service }) => {
           </div>
         </div>
         <div className="justify-start mt-4 card-actions">
-          <Link to={`/serviceDetails/${service?._id}`}>
+          <Link>
             <button className="rounded-lg py-[9px] bg-[#FA7436] hover:bg-opacity-80 px-[16px] text-white text-[18px] font-semibold normal-case">
               View Details
             </button>
@@ -61,7 +62,7 @@ const ServiceCard = ({ service }) => {
     </div>
   );
 };
-ServiceCard.propTypes = {
+ServiceDetailsCard.propTypes = {
   service: PropTypes.object.isRequired,
 };
-export default ServiceCard;
+export default ServiceDetailsCard;

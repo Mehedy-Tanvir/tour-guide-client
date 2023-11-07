@@ -10,6 +10,7 @@ import MySchedules from "../Pages/MySchedules/MySchedules";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import EditMyServices from "../Pages/EditMyServices/EditMyServices";
 import PrivateRoutes from "./PrivateRoutes";
+import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 
 const Routes = createBrowserRouter([
   {
@@ -34,6 +35,11 @@ const Routes = createBrowserRouter([
         element: <Services></Services>,
         loader: () => fetch("http://localhost:3000/services"),
       },
+      {
+        path: "serviceDetails/:id",
+        element: <ServiceDetails></ServiceDetails>,
+      },
+
       {
         path: "myServices",
         element: (
