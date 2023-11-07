@@ -1,12 +1,13 @@
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import MyServiceCard from "../../Components/myServiceCard/myServiceCard";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import Spinner from "../../Components/Spinner/Spinner";
 
 const MyServices = () => {
   const { user, loading } = useContext(AuthContext);
+  const [isLoading, setIsLoading] = useState(true);
   const [myServices, setMyServices] = useState([]);
   const axiosSecure = useAxiosSecure();
 
@@ -14,8 +15,14 @@ const MyServices = () => {
     if (!loading) {
       axiosSecure
         .get(`/myServices?email=${user?.email}`)
-        .then((res) => setMyServices(res.data))
-        .catch((error) => console.log(error));
+        .then((res) => {
+          setMyServices(res.data);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.log(error);
+          setIsLoading(false);
+        });
       // fetch(`http://localhost:3000/myServices?email=${user?.email}`)
       //   .then((res) => res.json())
       //   .then((data) => setMyServices(data))
@@ -91,6 +98,14 @@ const MyServices = () => {
               service={service}
             ></MyServiceCard>
           ))}
+          {!isLoading && myServices.length === 0 && (
+            <div className="min-h-screen max-w-[1400px] mx-auto flex justify-center items-center">
+              <h1 className="mt-4 text-3xl font-medium text-center text-black">
+                You have not added any services yet.
+              </h1>
+            </div>
+          )}
+          {isLoading && <Spinner></Spinner>}
         </div>
       </div>
     </div>

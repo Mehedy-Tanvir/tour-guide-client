@@ -1,5 +1,4 @@
 import toast from "react-hot-toast";
-import axios from "axios";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 

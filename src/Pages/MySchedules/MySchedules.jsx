@@ -1,12 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import axios from "axios";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const MySchedules = () => {
-  const [bookings, setBookings] = useState(null);
-  const [myPendingWorks, setMyPendingWorks] = useState(null);
+  const [bookings, setBookings] = useState([]);
+  const [myPendingWorks, setMyPendingWorks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useContext(AuthContext);
   const [workStatuses, setWorkStatuses] = useState({});
@@ -75,7 +74,6 @@ const MySchedules = () => {
             </thead>
 
             <tbody>
-              {/* row 1 */}
               {bookings?.map((booking, idx) => (
                 <tr key={idx}>
                   <th>{idx + 1}</th>
@@ -130,6 +128,11 @@ const MySchedules = () => {
             </tbody>
           </table>
         </div>
+      )}
+      {!isLoading && bookings.length === 0 && (
+        <h1 className="mt-4 text-2xl font-medium text-center text-yellow-500">
+          You have not booked any services yet.
+        </h1>
       )}
 
       {/* my pending works */}
@@ -217,6 +220,11 @@ const MySchedules = () => {
             </tbody>
           </table>
         </div>
+      )}
+      {!isLoading && myPendingWorks.length === 0 && (
+        <h1 className="mt-4 text-2xl font-medium text-center text-yellow-500">
+          Your services have not been purchased yet.
+        </h1>
       )}
     </div>
   );

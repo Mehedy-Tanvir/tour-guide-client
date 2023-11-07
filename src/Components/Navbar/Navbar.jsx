@@ -5,7 +5,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
-  const { user, logoutUser } = useContext(AuthContext);
+  const { user, logoutUser, loading } = useContext(AuthContext);
   const handleLogout = () => {
     const toastId = toast.loading("Logging out...");
     logoutUser()
@@ -16,7 +16,7 @@ const Navbar = () => {
   };
   const links = (
     <>
-      {user && (
+      {!loading && user && (
         <li className="md:ml-0 text-[var(--body_color)] text-[16px]">
           <div className="flex flex-col items-start justify-center gap-2 lg:items-center lg:flex-row">
             <img
@@ -32,7 +32,7 @@ const Navbar = () => {
           </div>
         </li>
       )}
-      {user && (
+      {!loading && user && (
         <div className="hidden dropdown lg:block">
           <label
             tabIndex={0}
@@ -118,7 +118,7 @@ const Navbar = () => {
         </NavLink>
       </li>
 
-      {!user && (
+      {!loading && !user && (
         <li>
           <NavLink
             className={({ isActive, isPending }) =>
@@ -135,7 +135,7 @@ const Navbar = () => {
         </li>
       )}
 
-      {user && (
+      {!loading && user && (
         <li>
           <NavLink
             onClick={handleLogout}
@@ -171,7 +171,7 @@ const Navbar = () => {
           className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 uppercase"
         >
           {links}
-          {user && (
+          {!loading && user && (
             <li className="lg:hidden">
               <details>
                 <summary>Dashboard</summary>
