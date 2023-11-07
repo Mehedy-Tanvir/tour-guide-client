@@ -21,7 +21,7 @@ const Services = () => {
   return (
     <div className="max-w-[1400px] px-2 mx-auto mb-[40px] mt-[40px]">
       <div className="flex items-center justify-center mt-10 mb-10">
-        <div className="join drop-shadow-sm">
+        <div className="md:join drop-shadow-sm">
           <div>
             <div>
               <input
@@ -33,7 +33,7 @@ const Services = () => {
               />
             </div>
           </div>
-          <div className="indicator">
+          <div className="flex items-center justify-center mt-4 md:indicator">
             <button
               onClick={handleSearch}
               className="join-item rounded-lg py-[9px] bg-[#FA7436] hover:bg-opacity-80 px-[16px] text-white text-[18px] font-semibold normal-case"
