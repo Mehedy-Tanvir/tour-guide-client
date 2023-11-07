@@ -43,13 +43,9 @@ const AddServices = () => {
   return (
     <div className="container px-2 mx-auto mt-10 mb-10">
       <div className="hero">
-        <div className="flex-col md:flex-row-reverse hero-content">
-          <div className="">
-            <img
-              className="hidden md:block xl:h-[600px]"
-              src="/add-product.jpg"
-              alt=""
-            />
+        <div className="flex-col lg:flex-row-reverse hero-content">
+          <div className="max-w-[300px]">
+            <img className="" src="/travel-selfie.gif" alt="" />
           </div>
           <div className="flex-shrink-0 border-2 border-[#FA7436] shadow-xl card">
             <form onSubmit={handleSubmit} className="card-body">
