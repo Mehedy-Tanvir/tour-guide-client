@@ -3,15 +3,17 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import MyServiceCard from "../../Components/myServiceCard/myServiceCard";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const MyServices = () => {
   const { user, loading } = useContext(AuthContext);
   const [myServices, setMyServices] = useState([]);
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
     if (!loading) {
-      axios
-        .get(`http://localhost:3000/myServices?email=${user?.email}`)
+      axiosSecure
+        .get(`/myServices?email=${user?.email}`)
         .then((res) => setMyServices(res.data))
         .catch((error) => console.log(error));
       // fetch(`http://localhost:3000/myServices?email=${user?.email}`)
@@ -19,7 +21,7 @@ const MyServices = () => {
       //   .then((data) => setMyServices(data))
       //   .catch((error) => console.log(error));
     }
-  }, [loading, user]);
+  }, [loading, user, axiosSecure]);
   console.log(myServices);
 
   const handleDelete = (id) => {
@@ -44,8 +46,8 @@ const MyServices = () => {
       .then((result) => {
         if (result.isConfirmed) {
           // User confirmed the deletion, so make the axios delete request.
-          axios
-            .delete(`http://localhost:3000/myService/${id}`)
+          axiosSecure
+            .delete(`/myService/${id}`)
             .then((res) => {
               // Handle the success response from the delete request.
               console.log(res.data);

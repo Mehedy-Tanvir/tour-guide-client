@@ -1,14 +1,15 @@
 import PropTypes from "prop-types";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import axios from "axios";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const ServiceDetailsCard = ({ service }) => {
   const { user } = useContext(AuthContext);
   const [buttonDisable, setButtonDisable] = useState(true);
   const [date, setDate] = useState("");
   const [instruction, setInstruction] = useState("");
+  const axiosSecure = useAxiosSecure();
   const handlePurchase = () => {
     const booking = {
       service,
@@ -21,8 +22,8 @@ const ServiceDetailsCard = ({ service }) => {
       status: "Pending",
     };
     const toastId = toast.loading("Placing your booking...");
-    axios
-      .post("http://localhost:3000/bookings", booking)
+    axiosSecure
+      .post("/bookings", booking)
       .then(() => {
         toast.success("Your booking was placed successfully", { id: toastId });
       })

@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../Provider/AuthProvider";
-import axios from "axios";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const AddServices = () => {
   const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -28,8 +29,8 @@ const AddServices = () => {
     };
     console.log(service);
     const toastId = toast.loading("Adding service...");
-    axios
-      .post("http://localhost:3000/services", service)
+    axiosSecure
+      .post("/services", service)
       .then((res) => {
         toast.success("Service added successfully", { id: toastId });
         console.log(res);

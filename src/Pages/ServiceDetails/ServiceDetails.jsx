@@ -1,17 +1,18 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Spinner from "../../Components/Spinner/Spinner";
 import ServiceDetailsCard from "../../Components/ServiceDetailsCard/ServiceDetailsCard";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const ServiceDetails = () => {
   const [service, setService] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/serviceDetails/${id}`)
+    axiosSecure
+      .get(`/serviceDetails/${id}`)
       .then((res) => {
         setService(res.data);
         setIsLoading(false);
@@ -20,7 +21,7 @@ const ServiceDetails = () => {
         console.log(error);
         setIsLoading(false);
       });
-  }, [id]);
+  }, [id, axiosSecure]);
   return (
     <>
       {isLoading && <Spinner></Spinner>}

@@ -1,10 +1,12 @@
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const EditMyServices = () => {
   const loadedService = useLoaderData();
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,8 +24,8 @@ const EditMyServices = () => {
     };
     console.log(service);
     const toastId = toast.loading("Updating service...");
-    axios
-      .put(`http://localhost:3000/myService/${loadedService?._id}`, service)
+    axiosSecure
+      .put(`/myService/${loadedService?._id}`, service)
       .then((res) => {
         toast.success("Service updated successfully", { id: toastId });
         console.log(res);

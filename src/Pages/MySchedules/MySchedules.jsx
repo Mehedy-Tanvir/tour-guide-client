@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const MySchedules = () => {
   const [bookings, setBookings] = useState(null);
@@ -9,10 +10,11 @@ const MySchedules = () => {
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useContext(AuthContext);
   const [workStatuses, setWorkStatuses] = useState({});
+  const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/myBookings?email=${user.email}`)
+    axiosSecure
+      .get(`/myBookings?email=${user.email}`)
       .then((res) => {
         setBookings(res.data);
         setIsLoading(false);
@@ -21,10 +23,10 @@ const MySchedules = () => {
         console.log(error);
         setIsLoading(false);
       });
-  }, [user]);
+  }, [user, axiosSecure]);
   useEffect(() => {
-    axios
-      .get(`http://localhost:3000/myPendingWorks?email=${user.email}`)
+    axiosSecure
+      .get(`/myPendingWorks?email=${user.email}`)
       .then((res) => {
         setMyPendingWorks(res.data);
         setIsLoading(false);
@@ -33,12 +35,12 @@ const MySchedules = () => {
         console.log(error);
         setIsLoading(false);
       });
-  }, [user, myPendingWorks]);
+  }, [user, myPendingWorks, axiosSecure]);
 
   const handleStatusChange = (status, id) => {
     const toastId = toast.loading("Changing status...");
-    axios
-      .patch(`http://localhost:3000/updateStatus/${id}`, {
+    axiosSecure
+      .patch(`/updateStatus/${id}`, {
         status,
       })
       .then((res) => {
@@ -153,7 +155,7 @@ const MySchedules = () => {
               {/* row 1 */}
               {myPendingWorks?.map((work, idx) => (
                 <tr key={idx}>
-                  <th>1</th>
+                  <th>{idx + 1}</th>
                   <td>
                     <div className="flex items-center space-x-3">
                       <div className="avatar">

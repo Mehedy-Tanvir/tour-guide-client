@@ -76,7 +76,9 @@ const Routes = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/myService/${params.id}`),
+          fetch(`http://localhost:3000/myService/${params.id}`, {
+            credentials: "include",
+          }),
       },
     ],
   },
