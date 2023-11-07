@@ -25,7 +25,7 @@ const ServiceDetails = () => {
     <>
       {isLoading && <Spinner></Spinner>}
       {!isLoading && service && (
-        <div className="max-w-[1400px] mx-auto flex justify-center items-center">
+        <div className="max-w-[1400px] mt-10 mb-10 mx-auto flex justify-center items-center">
           <ServiceDetailsCard service={service}></ServiceDetailsCard>
         </div>
       )}
