@@ -13,7 +13,9 @@ const ServiceDetailsCard = ({ service }) => {
     const booking = {
       service,
       providerEmail: service?.providerEmail,
+      bookerName: user?.displayName,
       bookerEmail: user?.email,
+      bookerImage: user?.photoURL,
       date,
       instruction,
       status: "Pending",
