@@ -56,7 +56,9 @@ const MySchedules = () => {
 
   return (
     <div className="max-w-[1400px] mx-auto mt-[40px] mb-[40px]">
-      <h1 className="text-3xl font-semibold text-center">My Bookings</h1>
+      <h1 className="text-4xl mb-[40px] font-semibold text-center">
+        My <span className="text-[#FA7436]">Bookings</span>
+      </h1>
       {!isLoading && bookings && (
         <div className="overflow-x-auto">
           <table className="table table-zebra">
@@ -136,8 +138,8 @@ const MySchedules = () => {
       )}
 
       {/* my pending works */}
-      <h1 className="text-3xl mt-[32px] font-semibold text-center">
-        My Pending Works
+      <h1 className="text-4xl mt-[100px] mb-[40px] font-semibold text-center">
+        My Pending <span className="text-[#FA7436]">Works</span>
       </h1>
       {!isLoading && myPendingWorks && (
         <div className="overflow-x-auto">
