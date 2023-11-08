@@ -48,10 +48,12 @@ const ServiceDetails = () => {
           <div className="flex items-center justify-center mt-10 mb-10">
             <ServiceDetailsCard service={service}></ServiceDetailsCard>
           </div>
-          <h1 className="text-3xl mt-[100px] mb-[40px] font-semibold text-center font-volkhov">
-            Other <span className="text-[#FA7436]">Services</span> From This
-            Provider
-          </h1>
+          {otherServices.length > 0 && (
+            <h1 className="text-3xl mt-[100px] mb-[40px] font-semibold text-center font-volkhov">
+              Other <span className="text-[#FA7436]">Services</span> From This
+              Provider
+            </h1>
+          )}
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {otherServices?.map((otherService, idx) => (
               <OtherServiceCard
