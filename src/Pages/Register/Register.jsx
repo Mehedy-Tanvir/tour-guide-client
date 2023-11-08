@@ -64,10 +64,10 @@ const Register = () => {
       <div className="max-w-[1400px] px-2 mx-auto mt-[40px] mb-[40px]">
         <div className="hero">
           <div className="flex-col md:flex-row-reverse hero-content">
-            <div className="">
+            <div className="max-w-[280px] lg:max-w-[400px]">
               <Lottie animationData={animationData} />
             </div>
-            <div className="border-2 shadow-xl w-full lg:w-[400px] border-[#FA7436] card">
+            <div className="border-2 shadow-xl max-w-[280px] md:max-w-[400px] shrink border-[#FA7436] card">
               <form onSubmit={handleSubmit} className="card-body">
                 <div className="form-control">
                   <label className="label">

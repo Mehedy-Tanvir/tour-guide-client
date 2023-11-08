@@ -40,9 +40,9 @@ const EditMyServices = () => {
       <div className="hero">
         <div className="flex-col lg:flex-row-reverse hero-content">
           <div className="">
-            <img className="max-w-[300px]" src="/travel-selfie.gif" alt="" />
+            <img className="max-w-[200px]" src="/travel-selfie.gif" alt="" />
           </div>
-          <div className="flex-shrink-0 border-2 border-[#FA7436] shadow-xl card">
+          <div className="flex-shrink border-2 border-[#FA7436] shadow-xl card">
             <form onSubmit={handleSubmit} className="card-body">
               <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
                 <div className="md:col-span-2 form-control">

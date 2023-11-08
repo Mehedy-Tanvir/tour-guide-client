@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 const NeedCard = ({ item }) => {
   return (
     <div className="w-[300px] h-[278px] drop-shadow-md rounded-xl p-[20px] bg-white">
@@ -11,5 +12,7 @@ const NeedCard = ({ item }) => {
     </div>
   );
 };
-
+NeedCard.propTypes = {
+  item: PropTypes.object.isRequired,
+};
 export default NeedCard;
