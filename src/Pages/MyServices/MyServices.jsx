@@ -23,7 +23,7 @@ const MyServices = () => {
           console.log(error);
           setIsLoading(false);
         });
-      // fetch(`http://localhost:3000/myServices?email=${user?.email}`)
+      // fetch(`https://tour-guide-server-alpha.vercel.app/myServices?email=${user?.email}`)
       //   .then((res) => res.json())
       //   .then((data) => setMyServices(data))
       //   .catch((error) => console.log(error));

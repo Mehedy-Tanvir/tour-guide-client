@@ -5,7 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://tour-guide-server-alpha.vercel.app",
   withCredentials: true,
 });
 const useAxiosSecure = () => {

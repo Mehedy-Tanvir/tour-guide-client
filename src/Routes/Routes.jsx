@@ -33,7 +33,8 @@ const Routes = createBrowserRouter([
       {
         path: "services",
         element: <Services></Services>,
-        loader: () => fetch("http://localhost:3000/services"),
+        loader: () =>
+          fetch("https://tour-guide-server-alpha.vercel.app/services"),
       },
       {
         path: "serviceDetails/:id",
@@ -76,9 +77,12 @@ const Routes = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/myService/${params.id}`, {
-            credentials: "include",
-          }),
+          fetch(
+            `https://tour-guide-server-alpha.vercel.app/myService/${params.id}`,
+            {
+              credentials: "include",
+            }
+          ),
       },
     ],
   },
