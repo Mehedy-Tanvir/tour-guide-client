@@ -145,7 +145,14 @@ const Register = () => {
                     className="h-[40px] mt-4 w-full text-center border-2 border-[var(--google_color)] font-medium text-[var(--google_color)] rounded-3xl"
                     onClick={handleGoogleSignIn}
                   >
-                    Sign In With Google
+                    <div className="flex items-center justify-center gap-2">
+                      <img
+                        className="w-[16px] h-[16px]"
+                        src="/google.png"
+                        alt=""
+                      />
+                      <span>Sign In With Google</span>
+                    </div>
                   </button>
                   <p className="mt-4 font-medium text-center text-gray-600">
                     Already have an account?{" "}
