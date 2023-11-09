@@ -18,7 +18,7 @@ const Root = () => {
     }
   }, [location]);
   return (
-    <div className="font-poppins">
+    <div className="px-2 font-poppins">
       <Navbar></Navbar>
       <div className="min-h-screen bg-[#FEFCFB]">
         <Outlet></Outlet>

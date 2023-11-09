@@ -4,7 +4,7 @@ const Subscribe = () => {
       <img className="absolute top-4 right-4" src="/Element.svg" alt="" />
       <img className="absolute bottom-4 left-4" src="/Element.svg" alt="" />
       <div className="absolute flex flex-col items-center justify-center w-full h-full">
-        <h1 className="text-white text-center font-semibold font-Volkhov text-[48px]">
+        <h1 className="text-white text-center font-semibold font-Volkhov text-[32px] md:text-[48px]">
           Subscribe and get exclusive <br />
           deals & offer
         </h1>

@@ -48,6 +48,26 @@ const ServiceDetails = () => {
           <div className="flex items-center justify-center mt-10 mb-10">
             <ServiceDetailsCard service={service}></ServiceDetailsCard>
           </div>
+          <h1 className="text-4xl mt-[100px] mb-[40px] font-semibold text-center font-volkhov">
+            Service <span className="text-[#FA7436]">Provider</span>
+          </h1>
+          <div className="flex items-center justify-center">
+            <div className="flex border-2 p-[20px] rounded-3xl flex-col items-center justify-center gap-4 shadow-lg">
+              <img
+                className="w-[150px] rounded-[100%]
+               object-cover object-center border-2 border-black h-[150px]"
+                src={service?.providerImage}
+                alt=""
+              />
+              <div className="text-center">
+                <h1 className="text-2xl font-semibold">
+                  Name: {service?.providerName}
+                </h1>
+                <h1 className="text-xl">Area: {service?.serviceArea}</h1>
+                <h1 className="text-[#666]">Email: {service?.providerEmail}</h1>
+              </div>
+            </div>
+          </div>
           {otherServices.length > 0 && (
             <h1 className="text-3xl mt-[100px] mb-[40px] font-semibold text-center font-volkhov">
               Other <span className="text-[#FA7436]">Services</span> From This

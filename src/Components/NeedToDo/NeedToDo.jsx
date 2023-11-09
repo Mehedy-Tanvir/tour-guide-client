@@ -24,7 +24,7 @@ const NeedToDo = () => {
   return (
     <div
       className="max-w-[1400px] rounded-lg flex items-center justify-center flex-col
-     mt-[40px] gap-[64px] mb-[40px] mx-auto px-2 bg-[#F7F8FC] min-h-[700px]"
+     mt-[40px] gap-[64px] py-[30px] mb-[40px] mx-auto px-2 bg-[#F7F8FC] min-h-[700px]"
     >
       <div className="flex flex-col items-center justify-center">
         <h1 className="text-5xl mb-[40px] font-semibold text-center font-volkhov">
@@ -36,7 +36,7 @@ const NeedToDo = () => {
         </p>
       </div>
       <div className="flex items-center justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px] max-w-[1170px]">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-[30px] max-w-[1170px]">
           {items.map((item, idx) => (
             <NeedCard key={idx} item={item}></NeedCard>
           ))}
