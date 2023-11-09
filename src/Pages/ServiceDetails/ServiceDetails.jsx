@@ -43,6 +43,13 @@ const ServiceDetails = () => {
   return (
     <>
       {isLoading && <Spinner></Spinner>}
+      {!isLoading && !service && (
+        <div className="min-h-screen max-w-[1400px] mx-auto flex justify-center items-center">
+          <h1 className="mt-4 text-3xl font-medium text-center text-black">
+            Service Not Found.
+          </h1>
+        </div>
+      )}
       {!isLoading && service && (
         <div className="max-w-[1400px] px-2 mb-[100px]  mx-auto ">
           <div className="flex items-center justify-center mt-10 mb-10">
