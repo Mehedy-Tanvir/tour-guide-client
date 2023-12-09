@@ -56,7 +56,8 @@
 
 - **Deployment:**
 
-  - Firebase Hosting
+  - Client Side Hosted to Firebase
+  - Backend Side Hosted to Vercel
 
 ## Server Repository
 
